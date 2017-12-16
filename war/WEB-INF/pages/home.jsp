@@ -3,8 +3,8 @@
 	response.setHeader("Cache-control", "no-store");
 	response.setHeader("Pragma", "no-cache");
 	response.setDateHeader("Expires", 0);
-//  	if(session.getAttribute("SessionID_Email")!=null)
-//  	      response.sendRedirect("home");
+	//  	if(session.getAttribute("SessionID_Email")!=null)
+	//  	      response.sendRedirect("home");
 %>
 <html>
 <head>
@@ -13,7 +13,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-//window.onbeforeunload = function() { return "Your work will be lost."; };
+	//window.onbeforeunload = function() { return "Your work will be lost."; };
 
 	$(document).ready(
 			function() {
@@ -27,8 +27,7 @@
 					type : 'get',
 					contentType : 'application/json',
 					success : function(updatefeedsObj) {
-						
-						
+
 						$(".homeloader").hide();
 						var parsingResponse = JSON.parse(updatefeedsObj);
 						for (var i = 0; i < parsingResponse.length; i++) {
@@ -48,9 +47,9 @@
 											+ "<p id ='feedstyle'>"
 											+ parsingResponse[i].feed
 											+ "</p><div>");
-						
-							}
-						
+
+						}
+
 					}
 				});
 				//When the user clicks anywhere outside of the modal, close it
@@ -61,7 +60,7 @@
 					}
 				}
 			});
-	
+
 	//Updating Feed on clicking UPDATE button
 	function buttonClick() {
 		$("#button_update").hide();

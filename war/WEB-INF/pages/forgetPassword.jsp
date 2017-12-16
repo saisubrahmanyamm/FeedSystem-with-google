@@ -18,13 +18,11 @@
 		$("#emailnotExistsSpan").hide();
 		$('#emailSent').hide();
 
-
 	});
 	function forgetPasswordClicked() {
 		var email = $('#inputemail').val();
-		
+
 		var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		
 
 		if (email == null || email == "" || !emailRegex.test(email)) {
 			$("#emailSpan").show().fadeOut(1500);
@@ -40,11 +38,10 @@
 				dataType : "json",
 				data : JSON.stringify(useremail),
 				success : function(responseObj) {
-			
+
 					if (responseObj.SuccessMsg == "success") {
 						$('#forgetPassword1').hide();
 						$('#emailSent').show();
-						
 
 					} else {
 						$("#emailnotExistsSpan").show().fadeOut(1500);
@@ -53,8 +50,6 @@
 			});
 		}
 	}
-	
-	
 </script>
 
 </head>
@@ -85,7 +80,8 @@
 			</tr>
 			<tr>
 				<td id="td"></td>
-				<td id="td"><span id='emailSent'>Password has sent to your E-mail address.</span></td>
+				<td id="td"><span id='emailSent'>Password has sent to
+						your E-mail address.</span></td>
 			</tr>
 			</div>
 </body>

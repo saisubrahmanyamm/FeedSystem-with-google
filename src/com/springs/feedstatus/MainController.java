@@ -98,10 +98,7 @@ public class MainController {
 
 		return "forgetPassword";
 	}
-	
-	
-	
-	
+
 	// Redirecting Profile page
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	protected String profile(HttpServletRequest req) {
@@ -124,9 +121,10 @@ public class MainController {
 			return "redirect:index";
 	}
 
-	@RequestMapping(value= "/forgetPassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/forgetPassword", method = RequestMethod.POST)
 	@ResponseBody
-	protected String changePassword(@RequestBody String userEmail, HttpServletRequest req) throws JsonParseException, JsonMappingException, IOException{
+	protected String changePassword(@RequestBody String userEmail, HttpServletRequest req)
+			throws JsonParseException, JsonMappingException, IOException {
 		boolean result;
 		String response = "";
 		String mailMsgBody;
@@ -136,59 +134,58 @@ public class MainController {
 		ObjectMapper objectMapper = new ObjectMapper();
 		Map<String, String> responseMapObj = new HashMap<String, String>();
 		UserDatabase user = objectMapper.readValue(userEmail, UserDatabase.class);
-		result= SignupAndLogin.checkingEmail(user.getEmail());
-		generatedPassword= RandomPasswordGenerator.randomCode();
-		System.out.println("Random code"+generatedPassword);
-		if(result == true){
-		responseMapObj.put("SuccessMsg", "success");
-		System.out.println("found email");
-	
-		SignupAndLogin.updatingPassword(user.getEmail(),generatedPassword);
-		try {
-			mailMsgBody = "Hi, " 
-					+ ",\nYour temp password for the feed system is below. Please login with this password and you can change the password once you are logged in.\nThe below details are your login credentials for website.\nEmail id : "
-					+ user.getEmail() + "\nPassword: " + generatedPassword;
-		
-			Message msg = new MimeMessage(session1);
-			msg.setFrom(new InternetAddress("sai.narayanrao@a-cti.com", "Feedsys Admin"));
-			System.out.println("Coming to mail");
-			msg.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail(), user.getFirstName()));
-			msg.setSubject("FeedSystem New - Password");
-			msg.setText(mailMsgBody);
+		result = SignupAndLogin.checkingEmail(user.getEmail());
+		generatedPassword = RandomPasswordGenerator.randomCode();
+		System.out.println("Random code" + generatedPassword);
+		if (result == true) {
+			responseMapObj.put("SuccessMsg", "success");
+			System.out.println("found email");
 
-			Transport.send(msg);
-		} catch (AddressException e) {
-			System.out.println(e);
-		} catch (MessagingException e) {
-			System.out.println(e);
+			SignupAndLogin.updatingPassword(user.getEmail(), generatedPassword);
+			try {
+				mailMsgBody = "Hi, "
+						+ ",\nYour temp password for the feed system is below. Please login with this password and you can change the password once you are logged in.\nThe below details are your login credentials for website.\nEmail id : "
+						+ user.getEmail() + "\nPassword: " + generatedPassword;
+
+				Message msg = new MimeMessage(session1);
+				msg.setFrom(new InternetAddress("sai.narayanrao@a-cti.com", "Feedsys Admin"));
+				System.out.println("Coming to mail");
+				msg.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail(), user.getFirstName()));
+				msg.setSubject("FeedSystem New - Password");
+				msg.setText(mailMsgBody);
+
+				Transport.send(msg);
+			} catch (AddressException e) {
+				System.out.println(e);
+			} catch (MessagingException e) {
+				System.out.println(e);
+			}
+			response = objectMapper.writeValueAsString(responseMapObj);
+		} else {
+			responseMapObj.put("SuccessMsg", "failed");
+			System.out.println("Not found email");
+			response = objectMapper.writeValueAsString(responseMapObj);
 		}
-		response = objectMapper.writeValueAsString(responseMapObj);
-	} else {
-		responseMapObj.put("SuccessMsg", "failed");
-		System.out.println("Not found email");
-		response = objectMapper.writeValueAsString(responseMapObj);
+		return response;
 	}
-	return response;
-	}
-	
-	
-	@RequestMapping(value ="/updatingPassword", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/updatingPassword", method = RequestMethod.POST)
 	@ResponseBody
-	protected String updatingPassword(@RequestBody String userPassword, HttpServletRequest req) throws IOException{
+	protected String updatingPassword(@RequestBody String userPassword, HttpServletRequest req) throws IOException {
 		boolean result;
 		String response = "";
 		ObjectMapper objectMapper = new ObjectMapper();
 		Map<String, String> responseMapObj = new HashMap<String, String>();
 		UserDatabase user = objectMapper.readValue(userPassword, UserDatabase.class);
-		result= SignupAndLogin.updatingPassword(user.getEmail(),user.getPassword());
-		if(result == true){
-		responseMapObj.put("SuccessMsg", "success");
-		System.out.println("Updated password");
-		response = objectMapper.writeValueAsString(responseMapObj);
+		result = SignupAndLogin.updatingPassword(user.getEmail(), user.getPassword());
+		if (result == true) {
+			responseMapObj.put("SuccessMsg", "success");
+			System.out.println("Updated password");
+			response = objectMapper.writeValueAsString(responseMapObj);
 		}
 		return response;
 	}
-	
+
 	// Signup activity
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	@ResponseBody
@@ -243,7 +240,7 @@ public class MainController {
 	@RequestMapping("/loginWithGoogle")
 	public ModelAndView loginWithGoogle() {
 		return new ModelAndView(
-			//	 "redirect:https://accounts.google.com/o/oauth2/auth?redirect_uri=http://localhost:8888/get_code&response_type=code&client_id=1044575489189-rm174ukmro713b6gsbu110h7rfm8a484.apps.googleusercontent.com&approval_prompt=force&scope=email&access_type=online");
+				// "redirect:https://accounts.google.com/o/oauth2/auth?redirect_uri=http://localhost:8888/get_code&response_type=code&client_id=1044575489189-rm174ukmro713b6gsbu110h7rfm8a484.apps.googleusercontent.com&approval_prompt=force&scope=email&access_type=online");
 				"redirect:https://accounts.google.com/o/oauth2/auth?redirect_uri=http://www.feedsys0554.appspot.com/get_code&response_type=code&client_id=1044575489189-rm174ukmro713b6gsbu110h7rfm8a484.apps.googleusercontent.com&approval_prompt=force&scope=email&access_type=online");
 
 	}
@@ -262,12 +259,12 @@ public class MainController {
 
 		// code for getting access token
 
-//		 URL url = new URL("https://www.googleapis.com/oauth2/v3/token?"
-//		 +
-//		 "client_id=1044575489189-rm174ukmro713b6gsbu110h7rfm8a484.apps.googleusercontent.com"
-//		 + "&client_secret=NfqNp1WWPJNunOrBpJvThueT&" +
-//		 "redirect_uri=http://localhost:8888/get_code&"
-//		 + "grant_type=authorization_code&" + "code=" + auth_code);
+		// URL url = new URL("https://www.googleapis.com/oauth2/v3/token?"
+		// +
+		// "client_id=1044575489189-rm174ukmro713b6gsbu110h7rfm8a484.apps.googleusercontent.com"
+		// + "&client_secret=NfqNp1WWPJNunOrBpJvThueT&" +
+		// "redirect_uri=http://localhost:8888/get_code&"
+		// + "grant_type=authorization_code&" + "code=" + auth_code);
 		URL url = new URL("https://www.googleapis.com/oauth2/v3/token?"
 				+ "client_id=1044575489189-rm174ukmro713b6gsbu110h7rfm8a484.apps.googleusercontent.com"
 				+ "&client_secret=NfqNp1WWPJNunOrBpJvThueT&"
@@ -346,7 +343,7 @@ public class MainController {
 			System.out.println(e);
 		}
 
-		 return new ModelAndView("redirect:http://www.feedsys0554.appspot.com/home");
+		return new ModelAndView("redirect:http://www.feedsys0554.appspot.com/home");
 		// return new ModelAndView("redirect:http://localhost:8888/home");
 	}
 

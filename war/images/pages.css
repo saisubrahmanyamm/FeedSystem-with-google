@@ -1,6 +1,5 @@
 body {
-	overflow-x:hidden;
-
+	overflow-x: hidden;
 	background-repeat: no-repeat;
 	background-image: url("/images/homepicture.jpg");
 	background-size: cover;
@@ -41,11 +40,11 @@ td {
 	font-size: 22px;
 	color: #B3008E;
 }
-#forgetPassword{
+
+#forgetPassword {
 	font-family: cursive;
 	font-size: 18px;
 	color: #B3008E;
-	
 }
 
 .submit {
@@ -55,9 +54,8 @@ td {
 	font-size: 18px;
 	border: none;
 	border-radius: 15px 15px;
-	outline:none;
+	outline: none;
 	font-family: cursive;
-	
 }
 
 .submit:hover {
@@ -77,7 +75,6 @@ td {
 	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 	padding-top: 60px;
 }
-
 
 .close {
 	/* Position it in the top right corner outside of the modal */
@@ -102,6 +99,7 @@ td {
 	border: 1px solid #888;
 	width: 60%; /* Could be more or less, depending on screen size */
 }
+
 .modal-content {
 	border: 3px solid #f1f1f1;
 	background-color: #fefefe;
@@ -126,43 +124,39 @@ td {
 	border: none;
 	border-radius: 15px 15px;
 	font-family: cursive;
-	outline:none;
-	
+	outline: none;
 }
 
-
-#signup-button ,#feedbutton, #googlelogin-button{
+#signup-button, #feedbutton, #googlelogin-button {
 	padding: 7px 20px;
-background-color: #3e74a0;
+	background-color: #3e74a0;
 	color: #b1c0cc;
 	font-size: 20px;
 	font-family: cursive;
 	border: none;
-	outline:none;
+	outline: none;
 	border-radius: 15px 15px;
-	
 }
 
 #signup-button:hover {
 	background-color: #B3008E;
 }
+
 #googlelogin-button:hover {
 	background-color: #B3008E;
 }
+
 #button_update:hover {
-		background-color: #B3008E;
-	
+	background-color: #B3008E;
 }
 
-#feedbutton:HOVER{
-		background-color: #B3008E;
-	
+#feedbutton:HOVER {
+	background-color: #B3008E;
 }
 
 #login-button:hover {
 	background-color: #B3008E;
 }
-
 
 a:hover {
 	text-decoration: none;
@@ -183,54 +177,56 @@ a {
 	padding: 7px 20px;
 	border-radius: 15px 15px;
 }
-#signuperrorSpan,#loginerrorSpan{
-font-size: 15px;
-color: red;
-}
-#passwordSpan,#emailSpan,#userNameSpan, #mobileSpan, #dobSpan, #genderSpan,#updateSpan{
+
+#signuperrorSpan, #loginerrorSpan {
 	font-size: 15px;
-color: red;
+	color: red;
 }
-#td{
+
+#passwordSpan, #emailSpan, #userNameSpan, #mobileSpan, #dobSpan,
+	#genderSpan, #updateSpan {
+	font-size: 15px;
+	color: red;
+}
+
+#td {
 	padding-bottom: 0px;
 	padding-top: 0px;
 }
 
-.feedTable{
-padding-bottom: 0.6cm;
+.feedTable {
+	padding-bottom: 0.6cm;
 	padding-top: 0.5cm;
 	padding-left: 1cm;
 	padding-right: 1cm;
-	
 }
-#container{
-	width : 600px;
+
+#container {
+	width: 600px;
 	height: 750px;
-    padding-left: 0px;
-    margin-left: 10cm;
-    margin-right: 10cm;
-    background-color: #DBD5D5;
-    overflow: scroll;
+	padding-left: 0px;
+	margin-left: 10cm;
+	margin-right: 10cm;
+	background-color: #DBD5D5;
+	overflow: scroll;
 	overflow-x: hidden;
-	border-radius : 10px 10px;
-
+	border-radius: 10px 10px;
 }
 
-.feeds
-{
+.feeds {
 	margin-top: 10px;
-	margin-bottom:10px;
+	margin-bottom: 10px;
 	margin-left: 20px;
 	margin-right: 20px;
 	border-style: groove;
 	border-radius: 10px 10px;
 }
-#feedTextId{
-	width : 425px;
-	height : 3cm;
-	outline : none;
-	border-radius : 10px 10px;
-	
+
+#feedTextId {
+	width: 425px;
+	height: 3cm;
+	outline: none;
+	border-radius: 10px 10px;
 }
 
 #button_update {
@@ -240,82 +236,116 @@ padding-bottom: 0.6cm;
 	font-size: 20px;
 	font-family: cursive;
 	border: none;
-	outline:none;
+	outline: none;
 	border-radius: 15px 15px;
-	margin-left : 7.2cm;
-	margin-top : 10px
+	margin-left: 7.2cm;
+	margin-top: 10px
 }
 
-#feedbutton{
+#feedbutton {
 	margin-left: 15.5cm;
-	margin-top :1cm;
-	
-}
-#allUpdates{
-	margin-left: 15.5cm;
-	margin-top :1cm;
-	font-family:cursive;
-	font-weight:bold;
-	color:#B3008E;
+	margin-top: 1cm;
 }
 
-#user{
+#allUpdates {
+	margin-left: 15.5cm;
+	margin-top: 1cm;
+	font-family: cursive;
+	font-weight: bold;
+	color: #B3008E;
+}
+
+#user {
 	background-color: #3e74a0;
-		color: #b1c0cc;
+	color: #b1c0cc;
 	text-align: center;
 	border-radius: 10px 10px;
-	height  : 35px;
-	font-size : 20px;
+	height: 35px;
+	font-size: 20px;
 }
 
-
-#time{
+#time {
 	text-align: right;
-	font-size : 13px;
-	margin-top : -4px;
+	font-size: 13px;
+	margin-top: -4px;
 	margin-right: 3px;
 }
 
-
-#feedstyle{
-	margin : 0.5cm 1cm 0.5cm 1cm;
+#feedstyle {
+	margin: 0.5cm 1cm 0.5cm 1cm;
 	color: #B3008E;
-	font-family:cursive;
-	font-size :18px;
+	font-family: cursive;
+	font-size: 18px;
 }
+
 .loader {
-  border: 5px solid #DBD5D5;
-  border-radius: 50%;
-  border-top: 5px solid #3e74a0;
-  width: 30px;
-  height: 30px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  margin-left: 50%;
+	border: 5px solid #DBD5D5;
+	border-radius: 50%;
+	border-top: 5px solid #3e74a0;
+	width: 30px;
+	height: 30px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	margin-left: 50%;
 }
+
 .homeloader {
-  border: 5px solid #DBD5D5;
-  border-radius: 50%;
-  border-top: 5px solid #3e74a0;
-  width: 30px;
-  height: 30px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-margin-left: 17cm;
-  
-  
-}
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+	border: 5px solid #DBD5D5;
+	border-radius: 50%;
+	border-top: 5px solid #3e74a0;
+	width: 30px;
+	height: 30px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	margin-left: 17cm;
 }
 
-@keyframes spin {
-  20% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@
+-webkit-keyframes spin { 0% {
+	-webkit-transform: rotate(0deg);
 }
 
+100%
+{
+-webkit-transform
 
 
+:
 
-	
+ 
+
+rotate
+
+
+(360
+deg
+);
+
+ 
+
+}
+}
+@
+keyframes spin { 20% {
+	transform: rotate(0deg);
+}
+100%
+{
+transform
+
+
+:
+
+ 
+
+rotate
+
+
+(360
+deg
+);
+
+ 
+
+}
+}

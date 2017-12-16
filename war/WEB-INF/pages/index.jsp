@@ -64,7 +64,7 @@
 			}
 		}
 	});
-	
+
 	//Reset sign up form
 	function reset() {
 		$("#FirstName").val("");
@@ -80,7 +80,7 @@
 	//On clicking sign up button ajax call
 	function signUpClicked() {
 		$(".loader").hide();
-		
+
 		var FirstName = $("#FirstName").val();
 		var LastName = $("#LastName").val();
 		var Email = $("#Email").val();
@@ -155,7 +155,7 @@
 			};
 			$(".submit").hide();
 			$(".loader").show();
-		
+
 			$.ajax({
 				url : "/signup",
 				type : "post",
@@ -166,7 +166,7 @@
 					$("#errorSpan").html("");
 					if (responseObj.SuccessMsg == "success") {
 						location.href = "/home";
-						
+
 					} else {
 						$(".loader").hide();
 						$(".submit").show();
@@ -179,7 +179,7 @@
 		}
 
 	}
-	
+
 	//On clicking login button ajax call
 	function loginClicked() {
 		var Email = $("#inputemail").val();
@@ -200,7 +200,7 @@
 			success : function(responseObj) {
 				$("#errorSpan").html("");
 				//	console.log("  responseFromServer  :: " + responseObj.SuccessMsg);
-				
+
 				if (responseObj.SuccessMsg == "success") {
 					location.href = "/home";
 				} else {
@@ -223,14 +223,16 @@
 		<b>Feed Status</b>
 		<p style="font-family: cursive; font-size: 20px; text-align: left">
 
-			
+
 			<button id=signup-button
 				onclick="document.getElementById('signupbody').style.display='block'"
 				style="width: auto;">SignUp</button>
 			<button id=login-button
 				onclick="document.getElementById('loginbody').style.display='block'"
 				style="width: auto;">Login</button>
-			<button id= googlelogin-button onclick= "window.location.href= '/loginWithGoogle'"> Login with Google</button>
+			<button id=googlelogin-button
+				onclick="window.location.href= '/loginWithGoogle'">Login
+				with Google</button>
 		</p>
 	</div>
 	<div id="loginbody" class="modal">
@@ -259,8 +261,10 @@
 				</tr>
 				<td></td>
 				<td><input type="button" value="Login" class="submit"
-					onclick='loginClicked()'><div class="loader"></div></td>
-					<td id= "forgetPassword"> <a href= forgetPassword> <u>Forget password?</u></a> </td>
+					onclick='loginClicked()'>
+				<div class="loader"></div></td>
+				<td id="forgetPassword"><a href=forgetPassword> <u>Forget
+							password?</u></a></td>
 
 			</table>
 			<div id="loginbody" style="background-color: #f1f1f1"></div>
@@ -332,8 +336,9 @@
 				</tr>
 				<tr>
 					<td>Gender</td>
-					<td><input type="radio" name="Gender" value="Male" class="Gender">Male
-						<input type="radio" name="Gender" value="Female" class="Gender">Female</td>
+					<td><input type="radio" name="Gender" value="Male"
+						class="Gender">Male <input type="radio" name="Gender"
+						value="Female" class="Gender">Female</td>
 				</tr>
 				<tr>
 					<td id="td"></td>
@@ -361,12 +366,13 @@
 				</tr>
 				<td></td>
 				<td><input value="Signup" class="submit" type="submit"
-					onclick='signUpClicked()'> <input value="Reset" class="submit"
-					type="reset" onclick='reset()'><div class="loader"></div></td>
-					
+					onclick='signUpClicked()'> <input value="Reset"
+					class="submit" type="reset" onclick='reset()'>
+				<div class="loader"></div></td>
+
 			</table>
 			<div id="signupbody" style="background-color: #f1f1f1"></div>
-			
+
 		</div>
 	</div>
 </body>
