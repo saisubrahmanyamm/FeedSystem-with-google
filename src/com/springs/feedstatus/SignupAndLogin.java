@@ -1,6 +1,5 @@
 package com.springs.feedstatus;
 
-
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -34,6 +33,45 @@ public class SignupAndLogin {
 		}
 	}
 
+	public static boolean checkingEmail(String email) {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query q = pm.newQuery("select from " + UserDatabase.class.getName() + " where email == emailParam "
+				+ "parameters String emailParam");
+
+		@SuppressWarnings("unchecked")
+		List<UserDatabase> results = (List<UserDatabase>) q.execute(email);
+		if (results.isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
+
+	}
+
+	public static boolean updatingPassword(String email, String newPassword) {
+		PersistenceManager pm = PMF.get().getPersistenceManager();
+		Query q = pm.newQuery("select from " + UserDatabase.class.getName() + " where email == emailParam "
+				+ "parameters String emailParam");
+
+		@SuppressWarnings("unchecked")
+		List<UserDatabase> results = (List<UserDatabase>) q.execute(email);
+		if (!results.isEmpty()) {
+			for (UserDatabase tableObj : results) {
+
+				String passwordfound = tableObj.getPassword();
+				System.out.println("OLD" + passwordfound);
+				System.out.println("New" + newPassword);
+				tableObj.setPassword(newPassword);
+
+			}
+			return true;
+		} else {
+			return false;
+
+		}
+
+	}
+
 	public static boolean loginValidation(String email, String password) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		Query q = pm.newQuery("select from " + UserDatabase.class.getName() + " where email == emailParam "
@@ -57,23 +95,24 @@ public class SignupAndLogin {
 		pm.close();
 		return false;
 	}
-	public static boolean feedSaving(String userName, String feed, String userMail, long time ){
+
+	public static boolean feedSaving(String userName, String feed, String userMail, long time) {
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		FeedsDatabase feedObj = new FeedsDatabase();
-		if(!feed.equals("")){
-		feedObj.setUserName(userName);
-		feedObj.setFeed(feed);
-		feedObj.setUserMail(userMail);
-		feedObj.setDate(time);
-		pm.makePersistent(feedObj);
-		return true;
-		}
-		else{
+		if (!feed.equals("")) {
+			feedObj.setUserName(userName);
+			feedObj.setFeed(feed);
+			feedObj.setUserMail(userMail);
+			feedObj.setDate(time);
+			pm.makePersistent(feedObj);
+			return true;
+		} else {
 			pm.close();
-		return false;
+			return false;
 		}
-		
+
 	}
+
 	public static String gettingUserName(String email) {
 		String userName = "";
 		PersistenceManager pm = PMF.get().getPersistenceManager();

@@ -7,7 +7,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <title>Feed Status</title>
 
-<link type="text/css" rel="stylesheet" href="/images/samplecss.css" />
+<link type="text/css" rel="stylesheet" href="/images/pages.css" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <script
@@ -260,6 +260,7 @@
 				<td></td>
 				<td><input type="button" value="Login" class="submit"
 					onclick='loginClicked()'><div class="loader"></div></td>
+					<td id= "forgetPassword"> <a href= forgetPassword> <u>Forget password?</u></a> </td>
 
 			</table>
 			<div id="loginbody" style="background-color: #f1f1f1"></div>

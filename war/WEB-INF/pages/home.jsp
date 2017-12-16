@@ -9,7 +9,7 @@
 <html>
 <head>
 <title>Home</title>
-<link type="text/css" rel="stylesheet" href="/images/samplecss.css" />
+<link type="text/css" rel="stylesheet" href="/images/pages.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">

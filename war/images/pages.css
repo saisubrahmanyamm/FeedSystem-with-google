@@ -41,6 +41,12 @@ td {
 	font-size: 22px;
 	color: #B3008E;
 }
+#forgetPassword{
+	font-family: cursive;
+	font-size: 18px;
+	color: #B3008E;
+	
+}
 
 .submit {
 	padding: 7px 20px;
@@ -49,7 +55,8 @@ td {
 	font-size: 18px;
 	border: none;
 	border-radius: 15px 15px;
-	    outline:none;
+	outline:none;
+	font-family: cursive;
 	
 }
 
@@ -126,13 +133,14 @@ td {
 
 #signup-button ,#feedbutton, #googlelogin-button{
 	padding: 7px 20px;
-	background-color: #3e74a0;
+background-color: #3e74a0;
 	color: #b1c0cc;
 	font-size: 20px;
 	font-family: cursive;
 	border: none;
 	outline:none;
 	border-radius: 15px 15px;
+	
 }
 
 #signup-button:hover {
@@ -154,6 +162,7 @@ td {
 #login-button:hover {
 	background-color: #B3008E;
 }
+
 
 a:hover {
 	text-decoration: none;
